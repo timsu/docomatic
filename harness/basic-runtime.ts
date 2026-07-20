@@ -109,15 +109,19 @@ const outputDirectory = join(process.cwd(), "index-output");
 const indexPath = join(outputDirectory, "index.json");
 const writesPath = join(outputDirectory, "writes.jsonl");
 
+function loadIndex(): Record<string, SearchDocument> {
+  if (!existsSync(indexPath)) return {};
+  return JSON.parse(readFileSync(indexPath, "utf8"));
+}
+
 export async function indexDocument(document: SearchDocument): Promise<void> {
   mkdirSync(outputDirectory, { recursive: true });
-  const index = await readIndex();
+  const index = loadIndex();
   index[document.key] = document;
   writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`);
   appendFileSync(writesPath, `${JSON.stringify(document)}\n`);
 }
 
 export async function readIndex(): Promise<Record<string, SearchDocument>> {
-  if (!existsSync(indexPath)) return {};
-  return JSON.parse(readFileSync(indexPath, "utf8"));
+  return loadIndex();
 }

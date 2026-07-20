@@ -7,7 +7,8 @@
     "phase1": "node scripts/set-phase.mjs 1",
     "phase2": "node scripts/set-phase.mjs 2",
     "phase3": "node scripts/set-phase.mjs 3",
-    "reset": "node scripts/reset.mjs"
+    "reset": "node scripts/reset.mjs",
+    "test:basic-harness": "tsx scripts/test-basic-harness.ts"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
