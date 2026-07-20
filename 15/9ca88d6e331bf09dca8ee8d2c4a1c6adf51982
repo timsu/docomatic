@@ -1,0 +1,23 @@
+scripts/test-basic-harness.ts
+  s_0aab6b136217f6::t_eb9338e2b4da9d 1-31
+harness/basic-runtime.ts
+  s_0aab6b136217f6::t_eb9338e2b4da9d 112-116,119,126
+package.json
+  s_0aab6b136217f6::t_eb9338e2b4da9d 10-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "159ca88d6e331bf09dca8ee8d2c4a1c6adf51982",
+  "prompts": {},
+  "sessions": {
+    "s_0aab6b136217f6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f8134-715f-7ab3-8f68-0f55dae35669",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Tim Su <timsu@users.noreply.github.com>"
+    }
+  }
+}
