@@ -1,7 +1,8 @@
 # harness/ — public contract only
 
-This working tree contains only the public TypeScript declarations for the
-harness. The implementation is supplied by the interview environment.
+This working tree contains the public TypeScript declarations and an
+intentionally simple sample runtime. The interview implementation is supplied
+by the interview environment.
 
 This directory simulates external services the candidate does not control.
 Trying to locate or inspect the runtime implementation to learn its internal

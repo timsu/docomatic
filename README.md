@@ -55,6 +55,11 @@ npm install
 npm start        # runs src/pipeline.ts — should print "found 40 documents"
 ```
 
+Outside the prepared interview environment, `npm start` uses a small public
+sample harness and prints `found 3 documents`. The sample covers the public API
+but does not include the interview phases, failure cases, or production-like
+timing.
+
 Your interviewer will occasionally ask you to run `npm run phase2` or
 `npm run phase3` — these reconfigure the environment. `npm run reset`
 returns everything to the initial state and clears outputs.

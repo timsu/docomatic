@@ -8,5 +8,5 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["harness/index.d.ts", "src", "interviewer"]
+  "include": ["harness/index.d.ts", "harness/basic-runtime.ts", "src", "interviewer"]
 }

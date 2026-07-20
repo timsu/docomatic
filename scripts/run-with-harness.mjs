@@ -1,5 +1,5 @@
 import { execFileSync, spawnSync } from "node:child_process";
-import { cpSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -15,7 +15,7 @@ function refExists(ref) {
   return result.status === 0;
 }
 
-if (!runtimeRef || !refExists(runtimeRef)) {
+if (runtimeRef && !refExists(runtimeRef)) {
   console.error("Harness runtime is unavailable. Ask the interviewer to check the environment setup.");
   process.exit(1);
 }
@@ -23,16 +23,21 @@ if (!runtimeRef || !refExists(runtimeRef)) {
 const runtimeRoot = mkdtempSync(join(tmpdir(), "docomatic-"));
 
 try {
-  const archive = execFileSync("git", ["archive", "--format=tar", runtimeRef, "harness"], {
-    cwd: root,
-    maxBuffer: 16 * 1024 * 1024,
-  });
-  const archivePath = join(runtimeRoot, "harness.tar");
-  writeFileSync(archivePath, archive);
-  execFileSync("tar", ["-xf", archivePath, "-C", runtimeRoot], {
-    env: { ...process.env, LANG: "C", LC_ALL: "C" },
-  });
-  rmSync(archivePath);
+  if (runtimeRef) {
+    const archive = execFileSync("git", ["archive", "--format=tar", runtimeRef, "harness"], {
+      cwd: root,
+      maxBuffer: 16 * 1024 * 1024,
+    });
+    const archivePath = join(runtimeRoot, "harness.tar");
+    writeFileSync(archivePath, archive);
+    execFileSync("tar", ["-xf", archivePath, "-C", runtimeRoot], {
+      env: { ...process.env, LANG: "C", LC_ALL: "C" },
+    });
+    rmSync(archivePath);
+  } else {
+    mkdirSync(join(runtimeRoot, "harness"));
+    cpSync(join(root, "harness", "basic-runtime.ts"), join(runtimeRoot, "harness", "index.ts"));
+  }
 
   cpSync(join(root, "src"), join(runtimeRoot, "src"), { recursive: true });
 
