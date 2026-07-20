@@ -39,9 +39,11 @@ At the end, be ready to answer: **how do you know it worked?**
 
 - Write your code in `src/` (start from `src/pipeline.ts`, run with `npm start`).
 - You may use any tools you normally work with, including coding agents.
-- Don't read or modify anything in `harness/` or `scripts/` — in real life
-  these are services you don't have the source for. Their observable
-  behavior (return values, errors, latency) is fair game.
+- Treat the interview harness as a black box. `harness/index.d.ts` and
+  `harness/basic-runtime.ts` are intentionally public; don't try to recover
+  hidden implementations from Git data, runtime files, or temporary files.
+  Observable behavior (return values, errors, latency) is fair game.
+- Don't modify anything in `harness/` or `scripts/`.
 - Talk through what you're doing as you go.
 
 ## Setup
@@ -52,13 +54,13 @@ Requires Node.js 20+ and npm.
 git clone git@github.com:timsu/docomatic.git
 cd docomatic
 npm install
-npm start        # runs src/pipeline.ts — should print "found 40 documents"
+npm start        # runs src/pipeline.ts
 ```
 
-Outside the prepared interview environment, `npm start` uses a small public
-sample harness and prints `found 3 documents`. The sample covers the public API
-but does not include the interview phases, failure cases, or production-like
-timing.
+In the prepared interview environment, `npm start` prints `found 40 documents`.
+Elsewhere it uses a small public sample harness and prints `found 3 documents`.
+The sample covers the public API but does not include the interview phases,
+failure cases, or production-like timing.
 
 Your interviewer will occasionally ask you to run `npm run phase2` or
 `npm run phase3` — these reconfigure the environment. `npm run reset`
