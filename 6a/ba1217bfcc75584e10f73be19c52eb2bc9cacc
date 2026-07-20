@@ -1,0 +1,31 @@
+scripts/run-with-harness.mjs
+  s_0aab6b136217f6::t_4e83bebbfeb99c 2,18,26-40
+harness/CLAUDE.md
+  s_0aab6b136217f6::t_c95f31bf93c905 3-5
+tsconfig.json
+  s_0aab6b136217f6::t_c95f31bf93c905 11
+AGENTS.md
+  s_0aab6b136217f6::t_c95f31bf93c905 6-9
+harness/basic-runtime.ts
+  s_0aab6b136217f6::t_4e83bebbfeb99c 1-123
+CLAUDE.md
+  s_0aab6b136217f6::t_c95f31bf93c905 6-9
+README.md
+  s_0aab6b136217f6::t_4e83bebbfeb99c 58-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "6aba1217bfcc75584e10f73be19c52eb2bc9cacc",
+  "prompts": {},
+  "sessions": {
+    "s_0aab6b136217f6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f8134-715f-7ab3-8f68-0f55dae35669",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Tim Su <timsu@users.noreply.github.com>"
+    }
+  }
+}
