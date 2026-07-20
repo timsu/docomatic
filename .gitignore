@@ -1,0 +1,10 @@
+node_modules/
+dist/
+
+# interviewer-only materials (rubric, guide, reference solution)
+interviewer/
+
+# runtime state produced by the harness / candidate runs
+index-output/
+.config.json
+.ref-checkpoint.json

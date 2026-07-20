@@ -1,0 +1,17 @@
+{
+  "name": "distill-pipeline-interview",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/run-with-harness.mjs",
+    "phase1": "node scripts/set-phase.mjs 1",
+    "phase2": "node scripts/set-phase.mjs 2",
+    "phase3": "node scripts/set-phase.mjs 3",
+    "reset": "node scripts/reset.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}
